@@ -1,7 +1,8 @@
 import { Document } from 'mongoose';
 
 export interface Register extends Document {
-    readonly name: string;
+    readonly firstName: string;
+    readonly lastName: string;
     readonly email: string;
     readonly password: string;
 }

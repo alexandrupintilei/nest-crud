@@ -19,8 +19,7 @@ export class AuthController {
     @Get('register/:registerID')
     async getPost(@Res() res, @Param('registerID', new ValidateObjectId()) registerID) {
         const register = await this.authService.getRegister(registerID);
-        // tslint:disable-next-line:curly
-        if (!register) throw new NotFoundException('register does not exist!');
+        if (!register) { throw new NotFoundException('register does not exist!'); }
         return res.status(HttpStatus.OK).json(register);
 
     }

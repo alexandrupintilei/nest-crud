@@ -6,11 +6,9 @@ import { RegisterDTO } from '../dto/register.dto';
 
 @Injectable()
 export class AuthService {
-    // @InjectModel('Register') inject our Register User
-    // handle adding documents to the MongoDB database and retrive them
+
     constructor(@InjectModel('Register') private readonly registerModel: Model<Register>) { }
 
-    // register == user
     async getRegisters(): Promise<Register[]> {
         const registers = await this.registerModel.find().exec();
         return registers;
